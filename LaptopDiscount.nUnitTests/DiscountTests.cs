@@ -11,9 +11,9 @@ namespace LaptopDiscount.nUnitTests
 
         }
 
-            // Test 1
+            // Test 1: Verifying no discount for PartTime employees
             [Test]
-            public void PartTimeEmployee()
+            public void CalculateDiscountedPrice_PartTimeEmployee_ShouldReturnFullPrice()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
@@ -29,9 +29,9 @@ namespace LaptopDiscount.nUnitTests
                 Assert.AreEqual(1000m, result, "Part-time employees should not receive any discount.");
             }
 
-            // Test 2
+            // Test Case 2: Verifying 5% discount for PartialLoad employees
             [Test]
-            public void PartialLoadEmployee()
+            public void CalculateDiscountedPrice_PartialLoadEmployee_ShouldReturnPriceWith5PercentDiscount()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
@@ -49,7 +49,7 @@ namespace LaptopDiscount.nUnitTests
 
             // Test Case 3: Verifying 10% discount for FullTime employees
             [Test]
-            public void FullTimeEmployee()
+            public void CalculateDiscountedPrice_FullTimeEmployee_ShouldReturnPriceWith10PercentDiscount()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
@@ -67,7 +67,7 @@ namespace LaptopDiscount.nUnitTests
 
             // Test Case 4: Verifying 20% discount for CompanyPurchasing employees
             [Test]
-            public void CompanyPurchasingEmployee()
+            public void CalculateDiscountedPrice_CompanyPurchasingEmployee_ShouldReturnPriceWith20PercentDiscount()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
@@ -83,9 +83,9 @@ namespace LaptopDiscount.nUnitTests
                 Assert.AreEqual(800m, result, "Company purchasing should receive a 20% discount.");
             }
 
-            // Test Case 5
+            // Test Case 5 
             [Test]
-            public void AnyEmployeeWithZeroPrice()
+            public void CalculateDiscountedPrice_AnyEmployeeWithZeroPrice_ShouldReturnZero()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
@@ -103,7 +103,7 @@ namespace LaptopDiscount.nUnitTests
 
             // Test Case 6: Verifying behavior with high price
             [Test]
-            public void CompanyPurchasingEmployeee()
+            public void CalculateDiscountedPrice_CompanyPurchasingEmployeeWithHighPrice_ShouldReturnCorrectDiscountedPrice()
             {
                 // Assign
                 var discountCalculator = new EmployeeDiscount
